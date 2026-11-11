@@ -1,20 +1,18 @@
-import { Component } from "react";
-import style from "./ImageGallery.module.css"
+import style from "./ImageGallery.module.css";
 import ImageGalleryItem from "../ImageGalleryItem/ImageGalleryItem";
-class ImageGallery extends Component {
-  render() {
-    const { images, onClick } = this.props;
-    return (
-      <>
-        <ul className={style.list}>
-          {images.map((img) => {
-            return (
-            <ImageGalleryItem onClick={onClick} key={img.id + String(Math.random())} image={img}/>
-            );
-          })}
-        </ul>
-      </>
-    );
+
+const ImageGallery = ({ images, onClick }) => {
+  if (images.length === 0) {
+    return null;
   }
-}
+
+  return (
+    <ul className={style.list}>
+      {images.map((img) => (
+        <ImageGalleryItem onClick={onClick} key={img.id} image={img} />
+      ))}
+    </ul>
+  );
+};
+
 export default ImageGallery;

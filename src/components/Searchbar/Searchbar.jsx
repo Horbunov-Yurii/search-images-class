@@ -5,11 +5,15 @@ class Searchbar extends Component {
     searchValue: "",
   };
 
-  handleSubmit = (evt)=>{
-    evt.preventDefault()
-    this.props.onSubmit(this.state.searchValue)
-    
-  }
+  handleSubmit = (evt) => {
+    evt.preventDefault();
+
+    const searchValue = this.state.searchValue.trim();
+
+    if (!searchValue) return;
+
+    this.props.onSubmit(searchValue);
+  };
 
   render() {
     return (

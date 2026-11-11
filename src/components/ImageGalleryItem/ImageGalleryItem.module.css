@@ -1,0 +1,19 @@
+.imageButton {
+  display: block;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.image {
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: transform 250ms ease;
+}
+
+.imageButton:hover .image {
+  transform: scale(1.05);
+}

@@ -1,20 +1,28 @@
 import { Component } from "react";
-// import style from "./ImageGallery.module.css"
+import styles from "./ImageGalleryItem.module.css";
 class ImageGalleryItem extends Component {
-
   handleImageClick = (img) => {
     // console.log(img);
-    this.props.onClick(img)
-  }
+    this.props.onClick(img);
+  };
 
   render() {
-    const {image} = this.props
+    const { image } = this.props;
     return (
-      <>
-        <li>
-          <img onClick={() => this.handleImageClick(image.largeImageURL)} src={image.webformatURL} alt={image.tags} />
-        </li>
-      </>
+      <li>
+        <button
+          type="button"
+          className={styles.imageButton}
+          onClick={() => this.props.onClick(image.largeImageURL)}
+        >
+          <img
+            className={styles.image}
+            src={image.webformatURL}
+            alt={image.tags}
+            title={image.tags}
+          />
+        </button>
+      </li>
     );
   }
 }
